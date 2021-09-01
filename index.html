@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Audio Player</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/CSS/style.css">
+</head>
+<body>
+   <div class="sidebar">
+      <div class="side-wrapper">
+            
+         <div class="sidebar__logo">
+             <img src="/img/undraw_audio_player_re_cl20.svg" alt="">
+         </div>
+
+         <div class="sidebar__menu">
+             <a class="sidebar__menu__selecionada" href="#"><i class="fas fa-home"></i> Início</a>
+             <a href="#"><i class="fas fa-search"></i> Buscar</a>
+             <a href="#"><i class="fas fa-database"></i> Biblioteca</a>
+         </div>
+
+         <div class="sidebar__menu">
+             <p class="sidebar__menu__title">Playlists</p>
+
+             <div class="sidebar__menu__item">
+                 <div class="sidebar__menu__item__componente">
+                        <div class="mais">+</div>
+                 </div>
+                 <span>Criar Playlist</span>
+             </div>
+
+             <div class="sidebar__menu__item">
+                    <img src="/img/love.svg">
+                <span>Músicas Curtidas</span>
+            </div>
+         </div>
+
+      </div>
+
+   </div>
+
+   <div class="main">
+       <div class="main-wraper">
+
+        <div class="main__row">
+            <div class="main__row__title"><h2>Paradas</h2></div>
+
+             <div id="bk" class="main__col" data-image="img/bk.jpg" data-artist="Bk" data-song="Quadros" data-file="assets/BK- Quadros.mp3">
+                 <img src="/img/bk.jpg" alt="">
+                 <h3>Bk</h3>
+                 <p>Single - Quadros part Ashira e Luccas Carlos</p>
+             </div>
+
+             
+             <div id="filipe-ret" class="main__col" data-image="img/filipe ret.jpg" data-artist="Filipe Ret" data-song="Neurótico de Guerra" data-file="assets/Filipe Ret- NEURÓTICO DE GUERRA.mp3">
+                <img src="/img/filipe ret.jpg" alt="">
+                <h3>Filipe Ret</h3>
+                <p>Single - Neurótico de Guerra prod Mãole </p>
+            </div>
+
+            
+            <div class="main__col" data-image="img/Cazuza.jpg" data-artist="Cazuza" data-song="Exagerado" data-file="assets/Cazuza - Exagerado.mp3">
+                <img src="/img/Cazuza.jpg" alt="">
+                <h3>Cazuza</h3>
+                <p>Single - Exagerado</p>
+            </div>
+
+            
+            <div class="main__col" data-image="img/infinitointerno-capa.jpg" data-artist="3030" data-song="Todo Santo Dia" data-file="assets/3030 - Todo Santo Dia.mp3">
+                <img src="/img/infinitointerno-capa.jpg" alt="">
+                <h3>3030</h3>
+                <p>Single - Todo Santo Dia</p>
+            </div>
+
+            
+            <div class="main__col" data-image="img/Charlie Brown.jpg" data-artist="Charlie Brown jr" data-song="Lutar Pelo O Que é Meu" data-file="assets/Charlie Brown jr- Lutar Pelo Que É Meu.mp3">
+                <img src="/img/Charlie Brown.jpg" alt="">
+                <h3>Charlie Brown jr</h3>
+                <p>Single - Lutar pelo o que é meu</p>
+            </div>
+
+            
+            <div class="main__col" data-image="img/O Rappa.jpg" data-artist="O Rappa" data-song="A Minha Alma" data-file="assets/Minha Alma - O Rappa.mp3">
+                <img src="/img/O Rappa.jpg" alt="">
+                <h3>O Rappa</h3>
+                <p>Single - A Minha Alma</p>
+            </div>
+
+            
+            <div class="main__col">
+                <img src="/img/hiphop.jpg" alt="">
+                <h3>Hip Hop</h3>
+                <p>As 50 mais tocadas</p>
+            </div>
+
+            
+            <div class="main__col">
+                <img src="/img/funkpop.jpg" alt="">
+                <h3>Funk Pop</h3>
+                <p>As 50 mais tocadas</p>
+            </div>
+
+            
+        <div class="main__row">
+            <div class="main__row__title"><h2>Minhas Músicas</h2></div>
+
+             <div class="main__col" data-image="img/Legião.jpg" data-artist="Legião Urbana" data-song="Tempo Perdido" data-file="assets/Legião Urbana - Tempo Perdido.mp3">
+                 <img src="/img/Legião.jpg" alt="">
+                 <h3>Legião Urbana</h3>
+                 <p>Single - Tempo Perdido</p>
+             </div>
+
+             
+             <div class="main__col" data-image="img/redhot.jpg" data-artist="Californication" data-song="Red Hot Chili Peppers" data-file="assets/Red Hot Chili Peppers - Californication.mp3">
+                <img src="/img/redhot.jpg" alt="">
+                <h3>Red Hot Chili Peppers</h3>
+                <p>Single - Californication</p>
+            </div>
+
+        </div>
+
+       </div>
+   </div>
+
+   <div class="player">
+       <div class="player__artist">
+
+       </div>
+
+       <div class="player__control">
+           <div class="player__control__buttons">
+               <a href=""><i class="fas fa-forward"></i></a>
+               <a style="display: none;" id="pauseBtn" href="#"><i class="far fa-pause-circle"></i></a>
+               <a id="playBtn" href="#"><i class="far fa-play-circle"></i></a>
+               <a href=""><i class="fas fa-backward"></i></a>
+           </div>
+
+           <div class="player__control__progress">
+            <div style="width: 0%;" class="player__control__progress_2"></div>
+        </div>
+       </div>
+
+   </div>
+
+   <audio id="audioplayer" style="position:absolute; left:0; top:0; z-index: -999; opacity: 0;" controls="">
+       
+   </audio>
+   
+   <script src="/JS/all.min.js"></script>
+
+   <script>
+
+     var audioplayer = document.getElementById('audioplayer');
+     var loaded = false;
+     var playBtn = document.getElementById('playBtn');
+     var pauseBtn = document.getElementById('pauseBtn');
+
+     pauseBtn.addEventListener('click', (e)=>{
+         e.preventDefault();
+
+         playBtn.style.display = "inline";
+         pauseBtn.style.display = "none";
+         audioplayer.pause();
+
+         return false;
+
+     });
+
+     playBtn.addEventListener('click', (e)=>{
+         e.preventDefault();
+
+         playBtn.style.display = "none";
+         pauseBtn.style.display = "inline";
+         audioplayer.play();
+
+         return false;
+      });
+
+     const playsong = (file) =>{
+
+        
+        if(loaded == false){
+            audioplayer.innerHTML = `<source src="`+file+`" type="audio/mp3" /> `;
+            loaded = true;
+        }
+
+        audioplayer.play();
+        playBtn.style.display = "none";
+        pauseBtn.style.display = "inline";
+
+     }
+
+     document.querySelectorAll('.main__col').forEach(item=>{
+
+         item.addEventListener('click',event=>{
+            let image= item.getAttribute('data-image');
+            let artist= item.getAttribute('data-artist');
+            let song= item.getAttribute('data-song');
+            let file= item.getAttribute('data-file');
+
+            let playerArtistComponent = document.getElementsByClassName('player__artist');
+
+            playerArtistComponent[0].innerHTML= `
+               <img src="`+image+`" />
+               <h3>`+artist+`<br/><span>`+song+`</span></h3>
+            `;
+
+            playsong(file);
+         });    
+    });
+
+   </script>
+</body>
+</html>
